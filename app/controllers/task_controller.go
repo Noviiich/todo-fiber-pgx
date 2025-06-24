@@ -17,7 +17,7 @@ import (
 // @Accept json
 // @Produce json
 // @Success 200 {array} models.Task
-// @Router /v1/task [get]
+// @Router /v1/tasks [get]
 func GetTasks(c *fiber.Ctx) error {
 	// Create database connection.
 	db, err := database.OpenDBConnection()
@@ -131,15 +131,6 @@ func CreateTask(c *fiber.Ctx) error {
 		})
 	}
 
-	// Validate task fields.
-	if err := validator.New().Struct(task); err != nil {
-		// Return, if some fields are not valid.
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"error": true,
-			"msg":   utils.ValidatorErrors(err),
-		})
-	}
-
 	// Create task by given model.
 	if err := db.CreateTask(task); err != nil {
 		// Return status 500 and error message.
@@ -163,10 +154,10 @@ func CreateTask(c *fiber.Ctx) error {
 // @Tags Task
 // @Accept json
 // @Produce json
-// @Param id body string true "Task ID"
-// @Param title body string true "Title"
-// @Param description body string true "Description"
-// @Param status body integer true "Status"
+// @Param id body int true "Task ID"
+// @Param title body string false "Title"
+// @Param description body string false "Description"
+// @Param status body string false "Status"
 // @Success 202 {string} status "ok"
 // @Router /v1/task [put]
 func UpdateTask(c *fiber.Ctx) error {
