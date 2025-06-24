@@ -1,0 +1,152 @@
+basePath: /api/v1
+definitions:
+  models.Task:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    required:
+    - id
+    type: object
+info:
+  contact:
+    email: noviiich@yandex.ru
+    name: Noviiich
+  description: This is a simple Todo App API with Fiber and PostgreSQL.
+  termsOfService: http://swagger.io/terms/
+  title: API
+  version: 0.0.1
+paths:
+  /v1/task:
+    delete:
+      consumes:
+      - application/json
+      description: Delete task by given ID.
+      parameters:
+      - description: Task ID
+        in: body
+        name: id
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: ok
+          schema:
+            type: string
+      summary: delete task by given ID
+      tags:
+      - Task
+    post:
+      consumes:
+      - application/json
+      description: Create a new task.
+      parameters:
+      - description: Title
+        in: body
+        name: title
+        required: true
+        schema:
+          type: string
+      - description: Description
+        in: body
+        name: description
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Task'
+      summary: create a new task
+      tags:
+      - Task
+    put:
+      consumes:
+      - application/json
+      description: Update task.
+      parameters:
+      - description: Task ID
+        in: body
+        name: id
+        required: true
+        schema:
+          type: integer
+      - description: Title
+        in: body
+        name: title
+        schema:
+          type: string
+      - description: Description
+        in: body
+        name: description
+        schema:
+          type: string
+      - description: Status
+        in: body
+        name: status
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: ok
+          schema:
+            type: string
+      summary: update task
+      tags:
+      - Task
+  /v1/task/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get task by given ID.
+      parameters:
+      - description: Task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Task'
+      summary: get task by given ID
+      tags:
+      - Task
+  /v1/tasks:
+    get:
+      consumes:
+      - application/json
+      description: Get all exists tasks.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Task'
+            type: array
+      summary: get all exists tasks
+      tags:
+      - Tasks
+swagger: "2.0"

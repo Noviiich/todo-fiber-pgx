@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/gofiber/fiber/v2"
 
-	swagger "github.com/gofiber/swagger"
+	swagger "github.com/arsmn/fiber-swagger/v2"
 )
 
 // SwaggerRoute func for describe group of API Docs routes.
