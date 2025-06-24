@@ -1,7 +1,7 @@
 # ./app
 
-**Folder with business logic only**. This directory doesn't care about _what database driver you're using or any third-party things.
+**Папка только с бизнес-логикой**.  В этом каталоге не имеет значения, какой драйвер базы данных или какие сторонние компоненты вы используете.
 
-- `./app/controllers` folder for functional controllers (used in routes)
-- `./app/models` folder for describe business models of your project
-- `./app/queries` folder for describe queries for models of your project
+- `./app/controllers` папка для функциональных контроллеров (используемых в маршрутах)
+- `./app/models` папка для описания бизнес-моделей проекта
+- `./app/queries`  папка для описания запросов проекта
