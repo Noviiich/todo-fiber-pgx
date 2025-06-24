@@ -1,3 +1,3 @@
 # ./docs
 
-**Folder with API Documentation**. This directory contains config files for auto-generated API Docs by Swagger.
+**Папка с документацией по API**. Этот каталог содержит файлы конфигурации для автоматически генерируемой документации по API от Swagger.
