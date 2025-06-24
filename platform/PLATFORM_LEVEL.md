@@ -1,6 +1,6 @@
 # ./platform
 
-**Folder with platform-level logic**. This directory contains all the platform-level logic that will build up the actual project, like _setting up the database server instance_ and _storing migrations_.
+**Папка с логикой на уровне платформы**. тот каталог содержит всю логику на уровне платформы, которая будет формировать реальный проект, например настройку базы данных или хранение миграций.
 
-- `./platform/database` folder with database configuration
-- `./platform/migrations` folder with migration files (used with [golang-migrate/migrate](https://github.com/golang-migrate/migrate) tool)
+- `./platform/database` папка с функциями настройки базы данных
+- `./platform/migrations` папка с файлами миграции (используется с инструментом [golang-migrate/migrate](https://github.com/golang-migrate/migrate))
