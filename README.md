@@ -11,11 +11,11 @@ REST API, представляющий собой приложения для с
 ```bash
 make docker.run
 
-# Process:
-#   - Generate API docs by Swagger
-#   - Create a new Docker network for containers
-#   - Build and run Docker containers (Fiber, PostgreSQL)
-#   - Apply database migrations (using github.com/golang-migrate/migrate)
+# Процесс:
+#   - Создание документации по API с помощью Swagger
+#   - Создание новой сети Docker для контейнеров
+#   - Сборка и запуск контейнеров Docker (Fiber, PostgreSQL)
+#   - Применение миграций базы данных (с помощью github.com/golang-migrate/migrate)
 ```
 4. Перейдите на страницу документации по API: [127.0.0.1:5000/swagger/index.html](http://127.0.0.1:5000/swagger/index.html)
 ![Swagger](./assets/swagger.png)
@@ -82,17 +82,17 @@ DB_MAX_LIFETIME_CONNECTIONS=2
 ## 1. Создание задачи
 ![Create](./assets/create.png)
 
-## 1. Изменение задачи
+## 2. Изменение задачи
 ![Put](./assets/put.png)
 
-## 1. Получение задачи
+## 3. Получение задачи
 ![Get](./assets/get.png)
 
-## 1. Удаление задачи
+## 4. Удаление задачи
 ![Delete](./assets/delete.png)
 
-## 1. Создание задачи
+## 5. Создание задачи
 ![Get_Error](./assets/error_get.png)
 
-## 1. Получение всех задач
+## 6. Получение всех задач
 ![Get_Tasks](./assets/tasks.png)
