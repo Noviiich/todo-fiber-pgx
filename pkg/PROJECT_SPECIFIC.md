@@ -1,8 +1,8 @@
 # ./pkg
 
-**Folder with project specific functionality**. This directory contains all the project-specific code tailored only for your business use case, like _configs_, _middleware_, _routes_, _utils_ or else.
+**Папка с функционалом, специфичным для проекта**. Этот каталог содержит весь код, специфичный для проекта и предназначенный только для вашего бизнеса, например _configs_, _middleware_, _routes_, _utils_.
 
-- `./pkg/configs` folder for configuration functions
-- `./pkg/middleware` folder for add middleware (Fiber and yours)
-- `./pkg/routes` folder for describe routes of your project
-- `./pkg/utils` folder with utility functions (server starter, error checker, etc)
+- `./pkg/configs` папка для функций настройки
+- `./pkg/middleware` папка для добавления промежуточного программного обеспечения (встроенного в Fiber и вашего собственного)
+- `./pkg/routes` папка для описания маршрутов проекта
+- `./pkg/utils`  папка с вспомогательными функциями
