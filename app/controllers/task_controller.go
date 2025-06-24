@@ -93,7 +93,7 @@ func GetTask(c *fiber.Ctx) error {
 	// Return status 200 OK.
 	return c.JSON(fiber.Map{
 		"error": false,
-		"msg":   nil,
+		"msg":   "task found",
 		"task":  task,
 	})
 }
@@ -132,7 +132,8 @@ func CreateTask(c *fiber.Ctx) error {
 	}
 
 	// Create task by given model.
-	if err := db.CreateTask(task); err != nil {
+	id, err := db.CreateTask(task)
+	if err != nil {
 		// Return status 500 and error message.
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error": true,
@@ -142,9 +143,9 @@ func CreateTask(c *fiber.Ctx) error {
 
 	// Return status 200 OK.
 	return c.JSON(fiber.Map{
-		"error": false,
-		"msg":   nil,
-		"task":  task,
+		"error":   false,
+		"msg":     "task created successfully",
+		"task_id": id,
 	})
 }
 
@@ -214,7 +215,7 @@ func UpdateTask(c *fiber.Ctx) error {
 	// Return status 201.
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{
 		"error": false,
-		"msg":   nil,
+		"msg":   "task updated successfully",
 	})
 }
 

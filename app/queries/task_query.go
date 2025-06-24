@@ -75,9 +75,9 @@ func (q *TaskQueries) GetTask(id int) (models.Task, error) {
 }
 
 // CreateTask method for creating task by given Task object.
-func (q *TaskQueries) CreateTask(t *models.Task) error {
+func (q *TaskQueries) CreateTask(t *models.Task) (int, error) {
 	query := `
-        INSERT INTO tasks (text, description)
+        INSERT INTO tasks (title, description)
         VALUES ($1, $2)
         RETURNING id
     `
@@ -85,11 +85,11 @@ func (q *TaskQueries) CreateTask(t *models.Task) error {
 	var id int
 	err := q.Pool.QueryRow(context.Background(), query, t.Title, t.Description).Scan(&id)
 	if err != nil {
-		return fmt.Errorf("error creating task: %w", err)
+		return 0, fmt.Errorf("error creating task: %w", err)
 	}
 
 	fmt.Printf("Created task with ID: %d\n", id)
-	return nil
+	return id, nil
 }
 
 // UpdateTask method for updating task by given Task object.
